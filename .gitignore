@@ -1,2 +1,6 @@
 node_modules
 private
+
+.idea
+src/configs/config.json
+docker-compose.yml

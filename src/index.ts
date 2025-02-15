@@ -68,6 +68,12 @@ else {
     // Enable handling of all requests via the router.ts file.
     app.use('/', router)
 
+    // Perform initialization tasks exactly once.
+    UbiLoginManager.instance.Login()
+
+    // Schedule cron tasks.
+    ScheduleLogin()
+
     // Run Express server and listen on port.
     app.listen(config.port)
 }
