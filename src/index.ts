@@ -61,8 +61,6 @@ else {
     // Create Express instance on this CPU.
     const app = express()
 
-    app.get('/ip', (request, response) => response.send(request.ip))
-
     app.set('trust proxy', 1);
 
     // Enable Helmet security.
