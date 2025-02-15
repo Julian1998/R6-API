@@ -29,7 +29,7 @@ const limiter = rateLimit({
     windowMs: 1000,
     standardHeaders: false,
     legacyHeaders: false, 
-    message: tooManyRequestsError
+    message: tooManyRequestsError,
 })
 
 // If this cluster is the primary cluster, create a worker on all other CPUs.
@@ -61,7 +61,9 @@ else {
     // Create Express instance on this CPU.
     const app = express()
 
-    app.set('trust proxy', true);
+    app.get('/ip', (request, response) => response.send(request.ip))
+
+    app.set('trust proxy', 1);
 
     // Enable Helmet security.
     app.use(helmet())
