@@ -8,4 +8,5 @@ FROM node:22 AS app
 WORKDIR /app
 COPY --from=builder /build /app
 RUN npm install -g pm2
+EXPOSE 3000
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]
