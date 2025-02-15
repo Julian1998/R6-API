@@ -14,7 +14,7 @@ RUN npm install -g pm2 ts-node && npm ci --omit=dev
 COPY . .
 
 # Exponiere den Port (Falls dein Server auf z. B. 3000 läuft)
-EXPOSE 3000
+EXPOSE 3888
 
 # Starte die App mit PM2
 CMD ["pm2-runtime", "ts-node", "src/index.ts"]
