@@ -109,10 +109,13 @@ export async function RequestFullProfile(usernames: string, platform: R6Platform
 
             // Create request for this user's level data.
             levelPromises.push(RequestR6Level(user.userId, user.profileId, tokenV3))
-            // Create request for this user's operator data.
-            //operatorsPromises.push(RequestR6Operators(user.userId, user.profileId, newPlatform, tokenV2))
-            // Create request for this user's lifetime data.
-            //lifetimePromises.push(RequestR6Lifetime(user.userId, user.profileId, newPlatform, tokenV2))
+
+            if(config.enable_official_ubisoft_tracker) {
+                // Create request for this user's operator data.
+                operatorsPromises.push(RequestR6Operators(user.userId, user.profileId, newPlatform, tokenV2))
+                // Create request for this user's lifetime data.
+                lifetimePromises.push(RequestR6Lifetime(user.userId, user.profileId, newPlatform, tokenV2))
+            }
         })
     }
 
